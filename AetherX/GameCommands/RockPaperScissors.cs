@@ -1,11 +1,15 @@
 using System;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
+using DSharpPlus.CommandsNext.Attributes;
 
 namespace AetherX.GameCommands {
     public class RockPaperScissors {
-
-        public static async Task RPS(CommandContext ctx, string choice, Random rnd) {
+        private Random rnd = new Random();
+        
+        
+        [Command("rps")]
+        public async Task RPS(CommandContext ctx, string choice) {
             int computer = rnd.Next(2);
             int player;
             switch (choice.ToLower()) {

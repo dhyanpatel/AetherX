@@ -1,16 +1,17 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
+using AetherX.HelperFiles;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 
 namespace AetherX.GameCommands {
     public class RockPaperScissors {
-        private Random rnd = new Random();
-        
+
         
         [Command("rps")]
         public async Task RPS(CommandContext ctx, string choice) {
-            int computer = rnd.Next(2);
+            int computer = ThreadLocalRandom.Instance.Next(3); // https://codeblog.jonskeet.uk/2009/11/04/revisiting-randomness/
             int player;
             switch (choice.ToLower()) {
                 case "rock":

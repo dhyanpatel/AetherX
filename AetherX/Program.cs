@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using DSharpPlus;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace AetherX {
     class Program {
@@ -10,11 +13,22 @@ namespace AetherX {
             MainAsync(args).ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// Retrieves the Bot Token so we can initialize the Bot.
+        /// </summary>
+        /// <param name="path">The path to your configuration File</param>
+        /// <returns>Bot Token</returns>
+        private static string GetToken(string path) {
+            JObject jObject = JObject.Parse(File.ReadAllText(path));
+
+            return jObject.GetValue("token").ToString();
+        }
+
         static async Task MainAsync(string[] args) {
 
             // Instantiates Discord Client
             discord = new DiscordClient(new DiscordConfiguration {
-                Token = "NTU5MTQ1NjA0MTMxODQ4MjAy.D3hKzg.y4YDKboazuT9JusmrUMk1w4Nams",
+                Token = GetToken("config.json"), // Whatever the path to your config file is goes here
                 TokenType = TokenType.Bot
             });
 

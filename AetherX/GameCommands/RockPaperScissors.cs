@@ -38,10 +38,8 @@ namespace AetherX.GameCommands {
                     .AddField("Computer", choice, true)
                     .AddField("Player", choice, true)
                     .WithAuthor(ctx.User.Username, null, ctx.User.AvatarUrl));
-                return;
-            }
-
-            if (player == 0 && computer == 1) {
+                
+            } else if (player == 0 && computer == 1) {
                 await ctx.RespondAsync(embed: new DiscordEmbedBuilder()
                     .WithColor(DiscordColor.Red)
                     .WithTitle("You Lose!")

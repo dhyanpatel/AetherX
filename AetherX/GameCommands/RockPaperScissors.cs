@@ -1,5 +1,3 @@
-using System;
-using System.Threading;
 using System.Threading.Tasks;
 using AetherX.HelperFiles;
 using DSharpPlus.CommandsNext;

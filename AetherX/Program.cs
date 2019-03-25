@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AetherX.GameCommands;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
@@ -26,17 +25,10 @@ namespace AetherX {
                 LogLevel = LogLevel.Debug
             });
 
-
-            discord.MessageCreated += async e => {
-                if (e.Message.Content.ToLower().StartsWith("ping")) {
-                    await e.Message.RespondAsync("Pong!");
-                }
-            };
-
             commands = discord.UseCommandsNext(new CommandsNextConfiguration {
                 StringPrefix = "!"
             });
-
+            
             commands.RegisterCommands<RockPaperScissors>();
 
 

@@ -2,7 +2,7 @@
 using AetherX.GameCommands;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
-
+// My Name is Deep and  I'm a Potato
 namespace AetherX {
     class Program {
         private static DiscordClient discord;

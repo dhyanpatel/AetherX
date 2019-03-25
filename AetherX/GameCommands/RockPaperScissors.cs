@@ -5,7 +5,7 @@ using DSharpPlus.CommandsNext.Attributes;
 
 namespace AetherX.GameCommands {
     public class RockPaperScissors {
-
+        
         
         [Command("rps")]
         public async Task RPS(CommandContext ctx, string choice) {
